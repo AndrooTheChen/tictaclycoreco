@@ -51,15 +51,56 @@
 </script>
 
 <main>
-	<div>
+	<p>
 		{pendingPlayer}
-	</div>
+    </p>
 	{#if !result}
-		{#each board as cell, idx}
-			<Cell on:message={handleCell} index={idx} />
-		{/each}
+        <div class="board-container">
+            <div class="board">
+                {#each board as cell, idx}
+                    <Cell on:message={handleCell} index={idx} />
+                {/each}
+            </div>
+        </div>
 	{:else}
-		<button on:click={resetGame}>Restart?</button>
+        <div class="restart">
+            <button class="restart" on:click={resetGame}>Restart?</button>
+        </div>
 	{/if}
 
 </main>
+
+<style>
+    p {
+        text-align: center;
+        font-size: 1.5em;
+    }
+
+    div.board-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    div.board {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 3px;
+        max-width: 8000px;
+    }
+
+    div.restart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    button.restart {
+        font-size: 1.5em;
+        padding: 10px;
+        border-radius: 5px;
+        background: hsl(0, 100%, 50%);
+        color: white;
+        border: none;
+        margin: 20px;
+    }
+</style>
