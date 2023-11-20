@@ -1,6 +1,9 @@
 <script>
     import { createEventDispatcher } from 'svelte';
 	import { turn } from './stores.js';
+    import empty_cell from '$lib/images/empty-cell.png';
+    import chisato from '$lib/images/chisato-cell.png';
+    import takina from '$lib/images/takina-cell.png';
 
 	export let index;
     let state = null;
@@ -22,22 +25,22 @@
 	}
 </script>
 
-<button on:click={handleCellClick}>{state}</button>
+<button on:click={handleCellClick} style="background: transparent; border: none; padding: 0;">
+    {#if state == null}
+        <img src={empty_cell} alt="empty">
+    {:else if state == 'X'}
+        <img src={chisato} alt="chisato">
+    {:else if state == 'O'}
+        <img src={takina} alt="takina">
+    {/if}
+</button>
 
 <style>
-	button {
-		font-size: 1.4em;
-		width: 6em;
-		height: 6em;
-		border-radius: 50%;
-		background: radial-gradient(circle at 25% 25%, hsl(0, 100%, 50%) 0, hsl(0, 100%, 40%) 100%);
-		box-shadow: 0 8px 0 hsl(0, 100%, 30%), 2px 12px 10px rgba(0,0,0,.35);
-		color: hsl(0, 100%, 30%);
-		text-shadow: -1px -1px 2px rgba(0,0,0,0.3), 1px 1px 2px rgba(255,255,255,0.4);
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		transform: translate(0, -8px);
-		transition: all 0.2s;
-		margin: 20px;
-	}
+    img {
+        width: 8em;
+        height: 8em;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 20px;
+    }
 </style>
