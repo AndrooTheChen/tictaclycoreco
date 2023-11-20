@@ -50,7 +50,7 @@
 
 </script>
 
-<main>
+<section>
 	<p>
 		{pendingPlayer}
     </p>
@@ -68,12 +68,12 @@
         </div>
 	{/if}
 
-</main>
+    </section>
 
 <style>
     p {
         text-align: center;
-        font-size: 1.5em;
+        font-size: 1em;
     }
 
     div.board-container {

@@ -17,17 +17,35 @@
 }
 
 body {
+	width: 100%;
 	min-height: 100vh;
 	margin: 0;
+	position: relative;
+	background-image: linear-gradient(
+		90deg,
+		#FFE6BB 0%,
+		#FFE6BB 10%,
+		#FED795 10%,
+		#FED795 20%,
+		#FFE6BB 20%,
+		#FFE6BB 30%,
+		#FED795 30%,
+		#FED795 40%,
+		#FFE6BB 40%,
+		#FFE6BB 50%,
+		#FED795 50%,
+		#FED795 60%,
+		#FFE6BB 60%,
+		#FFE6BB 70%,
+		#FED795 70%,
+		#FED795 80%,
+		#FFE6BB 80%,
+		#FFE6BB 90%,
+		#FED795 90%,
+		#FFE6BB 100%
+	);
+	background-size: cover;
 	background-attachment: fixed;
-	background-color: var(--color-bg-1);
-	background-size: 100vw 100vh;
-	background-image: radial-gradient(
-			50% 50% at 50% 50%,
-			rgba(255, 255, 255, 0.75) 0%,
-			rgba(255, 255, 255, 0) 100%
-		),
-		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
 }
 
 h1,
