@@ -1,16 +1,16 @@
 <script>
     import { createEventDispatcher } from 'svelte';
-	import { turn } from './stores.js';
+    import { turn } from './stores.js';
     import empty_cell from '$lib/images/empty-cell.png';
     import chisato from '$lib/images/chisato-cell.png';
     import takina from '$lib/images/takina-cell.png';
 
-	export let index;
-    let state = null;
+    export let index;
+    export let state;
 
     const dispatch = createEventDispatcher();
 
-	function handleCellClick() {
+    function handleCellClick() {
         if (state == null) {
             console.log(`marking cell ${index} with ${$turn}`);
             // mark the cell with the current player's turn
@@ -20,9 +20,9 @@
             dispatch('message', { idx: index, turn: $turn });
 
             // switch to the next player's turn
-    		$turn = $turn === 'X' ? 'O' : 'X';
+            $turn = $turn === 'X' ? 'O' : 'X';
         }
-	}
+    }
 </script>
 
 <button on:click={handleCellClick} style="background: transparent; border: none; padding: 0;">

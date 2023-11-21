@@ -20,10 +20,10 @@
 </div>
 
 <style>
-	.app {
-		display: flex;
-		flex-direction: row;
-		min-height: 100vh;
+    .app {
+        display: flex;
+        flex-direction: row;
+        min-height: 100vh;
         max-width: 100vw;
         overflow: hidden;
 	}
@@ -67,12 +67,12 @@
         bottom: 0;
     }
 
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		box-sizing: border-box;
-	}
+    main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
 </style>
