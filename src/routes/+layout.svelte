@@ -1,28 +1,40 @@
 <script>
     import './styles.css';
+    import Header from './Header.svelte';
     import chisato from '$lib/images/chisato2.jpg';
     import takina from '$lib/images/taikina2.jpg';
 </script>
 
 <div class="app">
-    <div class="item-left">
-        <img src={takina} alt="takina"/>
+    <Header />
+    
+    <div class="main-site">
+        <div class="item-left">
+            <img src={takina} alt="takina"/>
+        </div>
+    
+        <main class="item">
+            <slot />
+        </main>
+    
+        <div class="item-right">
+            <img src={chisato} alt="chisato"/>
+        </div>
     </div>
-
-    <main class="item">
-        <slot />
-    </main>
-
-    <div class="item-right">
-        <img src={chisato} alt="chisato"/>
-    </div>
-
 </div>
 
 <style>
-    .app {
+    .main-site {
         display: flex;
         flex-direction: row;
+        min-height: 100vh;
+        max-width: 100vw;
+        overflow: hidden;
+    }
+
+    .app {
+        display: flex;
+        flex-direction: column;
         min-height: 100vh;
         max-width: 100vw;
         overflow: hidden;

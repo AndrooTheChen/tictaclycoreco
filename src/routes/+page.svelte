@@ -3,7 +3,7 @@
     import WinModal from './WinModal.svelte';
 	import { turn } from './stores.js';
 	
-	$: pendingPlayer = `currently player ${$turn}'s turn.`;
+    $: pendingPlayer = $turn === 'X' ? "Chisato's turn" : "Takina's turn";
 
 	let result;
     let board = new Array(9).fill(null);
@@ -81,6 +81,8 @@
     p {
         text-align: center;
         font-size: 1em;
+        margin-top: 3em;
+        margin-bottom: 0em;
     }
 
     div.board-container {
@@ -108,6 +110,7 @@
         background: hsl(0, 100%, 50%);
         color: white;
         border: none;
-        margin: 20px;
+        margin-top: 1em;
+        margin-bottom: 0em;
     }
 </style>
