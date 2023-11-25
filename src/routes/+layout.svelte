@@ -1,8 +1,11 @@
 <script>
     import './styles.css';
     import Header from './Header.svelte';
+    import Board from './Board.svelte';
     import chisato from '$lib/images/chisato2.jpg';
     import takina from '$lib/images/taikina2.jpg';
+
+    let board = new Array(9).fill(null);
 </script>
 
 <div class="app">
@@ -14,7 +17,7 @@
         </div>
     
         <main class="item">
-            <slot />
+            <Board board={board} result={null} showModal={false}/>
         </main>
     
         <div class="item-right">

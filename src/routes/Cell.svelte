@@ -7,12 +7,13 @@
 
     export let index;
     export let state;
+    export let result;
 
     const dispatch = createEventDispatcher();
 
     function handleCellClick() {
-        if (state == null) {
-            console.log(`marking cell ${index} with ${$turn}`);
+        if (!state && !result) {
+            // console.log(`marking cell ${index} with ${$turn}`);
             // mark the cell with the current player's turn
             state = $turn;
 

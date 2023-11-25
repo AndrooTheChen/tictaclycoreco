@@ -1,8 +1,16 @@
+<script>
+    import Board from '../Board.svelte';
+
+    export let data;
+
+    $: board = data.board;
+</script>
+
 <svelte:head>
     <title>Multiplayer</title>
     <meta name="description" content="Multiplayer Tic Tac Toe game" />
 </svelte:head>
 
 <div class="text-column">
-    <h1>Coming soon!</h1>
+    <Board board={board} />
 </div>
