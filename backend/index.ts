@@ -58,7 +58,6 @@ serve({
         const indexOfPathEnd = url.length;
         const path = url.substring(indexOfPathStart, indexOfPathEnd);
         console.log(`path: ${path}, method: ${method}`);
-        console.log(`${path === 'initGame'}`);
 
         switch(method) {
             case 'GET':
@@ -80,7 +79,7 @@ serve({
                         return resp;
 
                     } catch (err) {
-                        console.log(err);
+                        console.log(`failed to get board state: ${err}`);
                         return new Response(JSON.stringify(err), { status: 500 });
                     }
                 } else if (path === 'getGame') {
@@ -92,11 +91,19 @@ serve({
             case 'POST':
                 // update the game board
                 if (path === 'updateGame') {
-                    const body = await request.json();
-                    console.log(`body: ${body}`);
+                    try {
+                        const body = await request.json();
 
-                    // update the game board.
-                    return new Response(null, { status: 200 });
+                        const board = JSON.stringify(body);
+                        console.log(`updating game state to: ${board}}`);
+                        // update the game board.
+                        await redis.set('game', board);
+    
+                        return new Response(null, { status: 200 });
+                    } catch (err) {
+                        console.log(`failed to update board: ${err}`);
+                        return new Response(JSON.stringify(err), { status: 500 });
+                    }
                 }
                 break;
             default:

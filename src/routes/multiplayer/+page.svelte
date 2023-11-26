@@ -1,5 +1,5 @@
 <script>
-    import Board from '../Board.svelte';
+    import MultiBoard from './MultiBoard.svelte';
 
     export let data;
 
@@ -12,5 +12,5 @@
 </svelte:head>
 
 <div class="text-column">
-    <Board board={board} />
+    <MultiBoard board={board} result={null} showModal={false} />
 </div>

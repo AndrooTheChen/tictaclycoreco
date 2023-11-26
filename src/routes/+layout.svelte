@@ -17,7 +17,8 @@
         </div>
     
         <main class="item">
-            <Board board={board} result={null} showModal={false}/>
+            <!-- <Board board={board} result={null} showModal={false}/> -->
+            <slot />
         </main>
     
         <div class="item-right">

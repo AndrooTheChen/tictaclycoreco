@@ -1,6 +1,6 @@
 <script>
     import { createEventDispatcher } from 'svelte';
-    import { turn } from './stores.js';
+    import { turn } from '../stores.js';
     import empty_cell from '$lib/images/empty-cell.png';
     import chisato from '$lib/images/chisato-cell.png';
     import takina from '$lib/images/takina-cell.png';
